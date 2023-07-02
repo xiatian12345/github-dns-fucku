@@ -1,0 +1,19 @@
+{
+  "name": "github-fucku",
+  "version": "1.0.0",
+  "description": "解决由于dns被q导致的github访问不了的问题",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiatian12345",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "node-debug": "^0.1.0"
+  }
+}
