@@ -15,6 +15,7 @@
   const shelljs = require("shelljs");
   const cheerio = require("cheerio");
   const fs = require("fs").promises;
+  const path = require('path');
 
   const successRate = 0.8;
   const retryTimes = 3;
@@ -25,9 +26,9 @@
   const startMarker = "# *******************fuck github start*******************";
   const endMarker   = "# *******************fuck github end*********************";
   const hostPath = "/private/etc/hosts";
+  const envFilePath = path.join(__dirname,'.env');
 
   const getToolIndex = async () => {
-    const envFilePath = ".env";
     let originalContent = await fs.readFile(envFilePath, "utf-8");
     originalContent = parseInt(originalContent);
 
@@ -39,7 +40,6 @@
   };
 
   const setToolIndex = async () => {
-    const envFilePath = ".env";
     let oldId = await getToolIndex();
     let newIndex = "" + ((oldId + 1) % tools.length);
     await fs.writeFile(envFilePath, newIndex, "utf-8");
